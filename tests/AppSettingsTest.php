@@ -11,7 +11,7 @@ class AppSettingsTests extends TestCase
 
     protected $appSettings;
 
-    public function setUp(): void 
+    public function setUp(): void
     {
         parent::setup();
         $this->appSettings = new AppSetting();
@@ -24,5 +24,15 @@ class AppSettingsTests extends TestCase
 
         $this->appSettings->set('name', 'James Bhatta');
         $this->assertDatabaseHas('app_settings', ['key' => 'name', 'value' => 'James Bhatta']);
+    }
+
+    /** @test */
+    public function it_updated_settings_if_key_exists()
+    {
+        $this->appSettings->set('name', 'James Bhatta');
+        $this->assertDatabaseHas('app_settings', ['key' => 'name', 'value' => 'James Bhatta']);
+     
+        $this->appSettings->set('name', 'James');
+        $this->assertDatabaseHas('app_settings', ['key' => 'name', 'value' => 'James']);
     }
 }
