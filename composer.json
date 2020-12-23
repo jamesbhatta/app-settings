@@ -20,5 +20,15 @@
         "psr-4": {
             "JamesBhatta\\AppSettings\\Tests\\": "tests" 
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JamesBhatta\\AppSettings\\AppSettingServiceProvider"
+            ],
+            "aliases": {
+                "AppSetting": "JamesBhatta\\AppSettings\\Facades\\AppSetting"
+            }
+        }
     }
 }

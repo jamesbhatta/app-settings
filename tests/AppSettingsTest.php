@@ -4,6 +4,7 @@ namespace JamesBhatta\AppSettings\Tests;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Cache;
+use JamesBhatta\AppSettings\Facades\AppSetting as FacadesAppSetting;
 use JamesBhatta\AppSettings\Models\AppSetting;
 
 class AppSettingsTests extends TestCase
@@ -85,9 +86,17 @@ class AppSettingsTests extends TestCase
     public function it_can_remove_a_key_from_setting()
     {
         $this->appSettings->set('name', 'James Bhatta');
-        
+
         $this->appSettings->remove('name');
 
         $this->assertCount(0, $this->appSettings->allSettings());
+    }
+
+    /** @test */
+    public function app_settings_can_be_accessed_using_facades()
+    {
+        FacadesAppSetting::set('name', 'James Bhatta');
+
+        $this->assertEquals('James Bhatta', FacadesAppSetting::get('name'));
     }
 }
