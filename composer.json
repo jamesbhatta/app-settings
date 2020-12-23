@@ -1,0 +1,24 @@
+{
+    "name": "jamesbhatta/app-settings",
+    "description": "Store application settings in database.\u001b[D on the fly.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "manojbhatta",
+            "email": "jmsbhatta@gmail.com"
+        }
+    ],
+    "require": {
+        "orchestra/testbench": "^6.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "JamesBhatta\\AppSettings\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JamesBhatta\\AppSettings\\Tests\\": "tests" 
+        }
+    }
+}
