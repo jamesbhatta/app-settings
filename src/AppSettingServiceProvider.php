@@ -9,7 +9,6 @@ class AppSettingServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        dd('tetx');
         // 
     }
 
@@ -18,5 +17,8 @@ class AppSettingServiceProvider extends ServiceProvider
         $this->app->bind('setting', function($app) {
             return new Setting();
         });
+
+        // load migrations
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
 }
