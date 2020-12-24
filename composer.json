@@ -1,6 +1,6 @@
 {
     "name": "jamesbhatta/app-settings",
-    "description": "Store application settings in database.\u001b[D on the fly.",
+    "description": "Store application settings on the fly.",
     "license": "MIT",
     "authors": [
         {
