@@ -6,10 +6,12 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Cache;
 use JamesBhatta\AppSettings\Facades\AppSetting as FacadesAppSetting;
 use JamesBhatta\AppSettings\Models\AppSetting;
+use Mattiasgeniar\PhpunitQueryCountAssertions\AssertsQueryCounts;
 
 class AppSettingsTests extends TestCase
 {
     use RefreshDatabase;
+    use AssertsQueryCounts;
 
     protected $appSettings;
 
@@ -72,17 +74,6 @@ class AppSettingsTests extends TestCase
     }
 
     /** @test */
-    public function it_caches_settings()
-    {
-        $this->appSettings->set('name', 'James Bhatta');
-
-        Cache::shouldReceive('rememberForever')
-            ->once();
-
-        $this->appSettings->allsettings();
-    }
-
-    /** @test */
     public function it_can_remove_a_key_from_setting()
     {
         $this->appSettings->set('name', 'James Bhatta');
@@ -98,5 +89,50 @@ class AppSettingsTests extends TestCase
         FacadesAppSetting::set('name', 'James Bhatta');
 
         $this->assertEquals('James Bhatta', FacadesAppSetting::get('name'));
+    }
+
+    /** @test */
+    public function it_can_be_accessed_using_settings_helper()
+    {
+        appSettings(['name' => 'James Bhatta']);
+        $this->assertEquals('James Bhatta', appSettings('name'));
+
+        appSettings()->set('phone', '123');
+        $this->assertEquals('James Bhatta', appSettings()->get('name'));
+    }
+
+    /** @test */
+    public function it_caches_settings()
+    {
+        $this->appSettings->set('name', 'James Bhatta');
+
+        Cache::shouldReceive('rememberForever')
+            ->once();
+
+        $this->appSettings->allsettings();
+    }
+
+    /** @test */
+    public function it_pulls_value_from_cache()
+    {
+        $this->appSettings->set('name', 'James Bhatta');
+
+        appSettings('name');
+        $this->trackQueries();
+        appSettings('name');
+        $this->assertNoQueriesExecuted();
+    }
+
+
+    /** @test */
+    public function it_fires_queries_on_fresh()
+    {
+        appSettings(['name' => 'James Bhatta']);
+        appSettings('name');
+
+        $this->trackQueries();
+        appSettings()->get('name', null, true);
+        appSettings()->get('name', null, true);
+        $this->assertQueryCountMatches(2);
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "06456fc1b3d85048666481786cc25f4d",
+    "content-hash": "3f3e3f92c664e907251fad867e30f1a7",
     "packages": [],
     "packages-dev": [
         {
@@ -1022,6 +1022,65 @@
                 }
             ],
             "time": "2020-10-18T11:50:25+00:00"
+        },
+        {
+            "name": "mattiasgeniar/phpunit-query-count-assertions",
+            "version": "1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mattiasgeniar/phpunit-query-count-assertions.git",
+                "reference": "250ed262494170b22f5c58abbfcfd889adf0e02f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mattiasgeniar/phpunit-query-count-assertions/zipball/250ed262494170b22f5c58abbfcfd889adf0e02f",
+                "reference": "250ed262494170b22f5c58abbfcfd889adf0e02f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^7.0|^8.0",
+                "php": "^7.3|^7.4|^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "orchestra/testbench": "^5.0",
+                "phpunit/phpunit": "^9.3",
+                "vimeo/psalm": "^3.11"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mattiasgeniar\\PhpunitQueryCountAssertions\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mattias Geniar",
+                    "email": "m@ttias.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A custom assertion for phpunit that allows you to count the amount of SQL queries used in a test. Can be used to enforce certain performance characteristics (ie: limit queries to X for a certain action).",
+            "homepage": "https://github.com/mattiasgeniar/phpunit-query-count-assertions",
+            "keywords": [
+                "mattiasgeniar",
+                "phpunit-query-count-assertions"
+            ],
+            "support": {
+                "issues": "https://github.com/mattiasgeniar/phpunit-query-count-assertions/issues",
+                "source": "https://github.com/mattiasgeniar/phpunit-query-count-assertions/tree/1.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/mattiasgeniar",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-12-01T14:30:44+00:00"
         },
         {
             "name": "mockery/mockery",
