@@ -24,8 +24,6 @@ class AppSettingsTests extends TestCase
     /** @test */
     public function a_new_app_setting_is_stored()
     {
-        // $this->withoutExceptionHandling();
-
         $this->appSettings->set('name', 'James Bhatta');
         $this->assertDatabaseHas('app_settings', ['key' => 'name', 'value' => 'James Bhatta']);
     }
@@ -65,7 +63,7 @@ class AppSettingsTests extends TestCase
     }
 
     /** @test */
-    public function it_can_check_of_certail_key_exists()
+    public function it_can_check_of_certain_key_exists()
     {
         $this->appSettings->set('name', 'James Bhatta');
 

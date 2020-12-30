@@ -13,20 +13,9 @@ abstract class TestCase extends Orchestra
     {
         parent::setup();
 
-        include_once __DIR__ . '/../database/migrations/2020_12_23_173602_create_app_settings_table.php';
+        include_once __DIR__ . '/../database/migrations/create_app_settings_table.stub';
 
         (new \CreateAppSettingsTable)->up();
     }
-
-    // protected function getEnvironmentSetUp($app)
-    // {
-    //     $app['config']->set('database.default', 'testbench');
-    //     $app['config']->set('database.connections.testbench', [
-    //         'driver' => 'sqlite',
-    //         'database' => ':memory:',
-    //         'prefix' => '',
-    //     ]);
-    // }
-
   
 }
