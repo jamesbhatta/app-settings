@@ -27,7 +27,7 @@ class AppSettingServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             if (!class_exists('CreateAppSettingsTable')) {
                 $this->publishes([
-                    __DIR__ . '/../database/migrations/create_app_settings.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . 'create_app_settings.php'),
+                    __DIR__ . '/../database/migrations/create_app_settings_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_app_settings.php'),
                 ], 'migrations');
             }
         }

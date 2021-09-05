@@ -13,7 +13,7 @@ abstract class TestCase extends Orchestra
     {
         parent::setup();
 
-        include_once __DIR__ . '/../database/migrations/create_app_settings_table.stub';
+        include_once __DIR__ . '/../database/migrations/create_app_settings_table.php.stub';
 
         (new \CreateAppSettingsTable)->up();
     }
