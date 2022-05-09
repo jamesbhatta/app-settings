@@ -29,7 +29,7 @@ Store application settings in database on the fly.
 
  3. To create the `jb_app_settings` table, you must publish the migration and run it with:
 	 ```bash
-	 php artisan vendor:publish --provider="JamesBhata\AppSettings\AppSettingServiceProvider" --tag="migrations"
+	 php artisan vendor:publish --provider="JamesBhatta\AppSettings\AppSettingServiceProvider" --tag="migrations"
 	 
 	 php artisan migrate
 	
